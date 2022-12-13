@@ -8,7 +8,6 @@
 import Foundation
 
 protocol NewsListingWebService {
-    func getNewsListing(searchString: String,
-                       page: Int,
-                       callback: @escaping ((ArticlesResponseModel?, Error?) -> Void)) -> Void
+    func getNewsListing(country: String,
+                       callback: @escaping ((ArticlesResponseModel?, Error?) -> Void))
 }

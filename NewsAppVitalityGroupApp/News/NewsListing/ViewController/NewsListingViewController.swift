@@ -8,27 +8,37 @@
 import UIKit
 
 class NewsListingViewController: UIViewController {
-
+    
+    var newsListingViewModel: NewsListingViewModel?
+    var articlesResponseModel: ArticlesResponseModel?
+    
+    let newsListingTableViewCellIdentifier = "NewsListingTableViewCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        AppDelegate.getServiceFactory().getNewsListingService().getNewsListing(searchString: "",
-                                           page: 1,
-                                           callback: { (eventsResponseModel, error) in
-                                                        print(eventsResponseModel?.articles?.count)
-                                           })
+        newsListingViewModel = NewsListingViewModel(newsListingService: AppDelegate.getServiceFactory().getNewsListingService())
+        
+        getNewsListing()
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func getNewsListing() {
+        newsListingViewModel?.getNewsListing(country: "us") { (articlesResponseModel, error) in
+            print(articlesResponseModel?.articles?.count)}
     }
-    */
+}
 
+extension NewsListingViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        articlesResponseModel?.articles?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let newsListingTableViewCell = tableView.dequeueReusableCell(withIdentifier: newsListingTableViewCellIdentifier, for: indexPath as IndexPath) as? NewsListingTableViewCell else { return UITableViewCell() }
+        return newsListingTableViewCell
+    }
+    
+    
 }

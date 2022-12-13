@@ -8,7 +8,8 @@
 import Foundation
 
 class NewsListingWebServiceCalls: NewsListingWebService {
-    func getNewsListing(searchString: String, page: Int, callback: @escaping ((ArticlesResponseModel?, Error?) -> Void)) {
+    func getNewsListing(country: String,
+                        callback: @escaping ((ArticlesResponseModel?, Error?) -> Void)) {
         
         let networkManager = NetworkManager()
         
