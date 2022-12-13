@@ -8,5 +8,6 @@
 import Foundation
 
 protocol IServiceFactory {
+    func getNewsListingService() -> NewsListingWebService
 }
 

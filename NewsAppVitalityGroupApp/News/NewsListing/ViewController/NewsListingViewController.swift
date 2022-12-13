@@ -13,6 +13,11 @@ class NewsListingViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        AppDelegate.getServiceFactory().getNewsListingService().getNewsListing(searchString: "",
+                                           page: 1,
+                                           callback: { (eventsResponseModel, error) in
+                                                        print(eventsResponseModel?.articles?.count)
+                                           })
     }
     
 

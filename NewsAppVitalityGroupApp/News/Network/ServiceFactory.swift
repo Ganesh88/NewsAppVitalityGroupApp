@@ -8,4 +8,8 @@
 import Foundation
 
 class ServiceFactory: IServiceFactory {
+    
+    func getNewsListingService() -> NewsListingWebService {
+        NewsListingWebServiceCalls()
+    }
 }
