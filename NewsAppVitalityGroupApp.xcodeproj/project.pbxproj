@@ -25,6 +25,7 @@
 		1F7E72582948D9A900BB980D /* NewsListingWebServiceCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7E72572948D9A900BB980D /* NewsListingWebServiceCalls.swift */; };
 		1F7E725A2948E45700BB980D /* NewsListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7E72592948E45700BB980D /* NewsListingTableViewCell.swift */; };
 		1F7E725C2948E6A300BB980D /* NewsListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7E725B2948E6A300BB980D /* NewsListingViewModel.swift */; };
+		1FE5251C294B76F20049A3D0 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1FE5251B294B76F20049A3D0 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FE5251C294B76F20049A3D0 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,8 +230,8 @@
 		1F7E72512948D5BE00BB980D /* API */ = {
 			isa = PBXGroup;
 			children = (
-				1F7E72522948D60900BB980D /* NewsListingWebService.swift */,
 				1F7E72572948D9A900BB980D /* NewsListingWebServiceCalls.swift */,
+				1F7E72522948D60900BB980D /* NewsListingWebService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -258,6 +260,9 @@
 			dependencies = (
 			);
 			name = NewsAppVitalityGroupApp;
+			packageProductDependencies = (
+				1FE5251B294B76F20049A3D0 /* SDWebImage */,
+			);
 			productName = NewsAppVitalityGroupApp;
 			productReference = 1F7E720B2948AB2600BB980D /* NewsAppVitalityGroupApp.app */;
 			productType = "com.apple.product-type.application";
@@ -330,6 +335,9 @@
 				Base,
 			);
 			mainGroup = 1F7E72022948AB2600BB980D;
+			packageReferences = (
+				1FE5251A294B76F20049A3D0 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 1F7E720C2948AB2600BB980D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -568,6 +576,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -595,6 +604,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -720,6 +730,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1FE5251A294B76F20049A3D0 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1FE5251B294B76F20049A3D0 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1FE5251A294B76F20049A3D0 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1F7E72032948AB2600BB980D /* Project object */;
 }

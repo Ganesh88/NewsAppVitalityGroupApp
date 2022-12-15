@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import SDWebImage
 
 class NewsListingTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var newsTitle: UILabel!
+    @IBOutlet weak var newsImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,5 +23,12 @@ class NewsListingTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    func configure(articleModel: Article?)  {
+        newsTitle.text = articleModel?.title
+        newsImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        if let articleImageURL = URL(string: articleModel?.urlToImage ?? "") {
+            newsImageView.sd_setImage(with:  articleImageURL, placeholderImage: UIImage(named: "placeholder"))
+        }
+    }
 }
