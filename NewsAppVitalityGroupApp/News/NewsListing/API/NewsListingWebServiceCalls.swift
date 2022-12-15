@@ -14,7 +14,7 @@ class NewsListingWebServiceCalls: NewsListingWebService {
         let networkManager = NetworkManager()
         
         let queryParams = (String(format:APIConstants.NewsListing.queryParameters,
-                          "us",
+                                  country,
                                   APIConstants.AppRequired.APIKey
                           ))
         var urlString = APIConstants.AppRequired.basisURL + APIConstants.NewsListing.headlinesEndPoint + queryParams
@@ -28,6 +28,7 @@ class NewsListingWebServiceCalls: NewsListingWebService {
                 callback(articlesResponseModel, nil)
             case .failure(let error):
                 debugPrint("We got a failure trying to get the users. The error we got was: \(error.localizedDescription)")
+                callback(nil, error)
             }
          }
     }

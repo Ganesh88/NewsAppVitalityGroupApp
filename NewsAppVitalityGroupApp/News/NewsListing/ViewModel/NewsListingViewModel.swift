@@ -18,7 +18,7 @@ class NewsListingViewModel {
     func getNewsListing(country: String,
                         callback: @escaping ((ArticlesResponseModel?, Error?) -> Void)) {
         
-        newsListingService?.getNewsListing(country: "us") {
+        newsListingService?.getNewsListing(country: country) {
             (articlesResponseModel, error) in
             callback(articlesResponseModel, error)
         }
