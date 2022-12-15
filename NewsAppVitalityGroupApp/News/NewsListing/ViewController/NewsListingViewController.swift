@@ -24,6 +24,8 @@ class NewsListingViewController: UIViewController {
     let userDefaults = UserDefaults.standard
     var selectedCountry: CountryModel?
     
+    private var pullToRefreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +49,7 @@ class NewsListingViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = logButton
         setUpToolBar()
+        setUpPullToRefreshControl()
 
     }
     
@@ -63,11 +66,10 @@ class NewsListingViewController: UIViewController {
         toolBar.backgroundColor = .clear
         toolBar.barTintColor =  .systemGray
 
-        let doneButton = UIBarButtonItem(title: "Done",
+        let doneButton = UIBarButtonItem(title: "Select country for news",
                                          style: UIBarButtonItem.Style.done,
                                          target: self,
                                          action: #selector(donePicker))
-       
 
         toolBar.setItems([doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
@@ -77,6 +79,17 @@ class NewsListingViewController: UIViewController {
     
     @objc func donePicker() {
         countrySelectPickerView.isHidden = true
+    }
+    
+    private func setUpPullToRefreshControl() {
+        pullToRefreshControl.attributedTitle = NSAttributedString(string: NewsListingConstants.refreshNews)
+        pullToRefreshControl.addTarget(self, action: #selector(refreshNews(_:)), for: .valueChanged)
+        newsTableView.refreshControl = pullToRefreshControl
+    }
+    
+    @objc private func refreshNews(_ sender: Any) {
+        pullToRefreshControl.endRefreshing()
+        getNewsListing()
     }
     
     private func getNewsListing() {
