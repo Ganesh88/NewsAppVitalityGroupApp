@@ -11,6 +11,12 @@ struct ArticlesResponseModel: Codable {
     let status: String?
     let totalResults: Int?
     let articles: [Article]?
+    
+    init() {
+        status = ""
+        totalResults = 0
+        articles = []
+    }
 }
 
 struct Article: Codable {
