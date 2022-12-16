@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class NewsListingViewController: UIViewController {
     
@@ -108,8 +109,10 @@ class NewsListingViewController: UIViewController {
         newsListingViewModel?.getNewsListing(country: selectedCountry?.shortName ?? "us") {
             (articlesResponseModel, error) in
             if error != nil {
+                self.logErrorInNewsLoadedEvent()
                 CommonUtils.showGenericAlert(message: NewsListingConstants.newsFetchingErrorMessage, viewController: self)
             } else {
+                self.logNewsLoadedEvent()
                 self.articlesResponseModel = articlesResponseModel
                 self.newsTableView.reloadData()
             }
@@ -181,5 +184,25 @@ extension NewsListingViewController {
         }
         
         return ""
+    }
+}
+
+extension NewsListingViewController {
+    func logNewsLoadedEvent() {
+        Analytics.logEvent("NewsLoaded", parameters:
+                            [ "screenName": "NewsListingScreen",
+                            "event": "ArticleLoaded"])
+    }
+    
+    func logErrorInNewsLoadedEvent() {
+        Analytics.logEvent("ErrorInNewsLoaded", parameters:
+                            [ "screenName": "NewsListingScreen",
+                            "event": "ErrorInNewsLoad"])
+    }
+    
+    func logNewsDetailsEvent() {
+        Analytics.logEvent("NewsDetails", parameters:
+                            [ "screenName": "NewsListingScreen",
+                            "event": "NewsDetailsTapped"])
     }
 }
