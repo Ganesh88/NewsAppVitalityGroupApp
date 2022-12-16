@@ -106,8 +106,10 @@ class NewsListingViewController: UIViewController {
     }
     
     private func getNewsListing() {
+        showHud()
         newsListingViewModel?.getNewsListing(country: selectedCountry?.shortName ?? "us") {
             (articlesResponseModel, error) in
+            self.hideHUD()
             if error != nil {
                 self.logErrorInNewsLoadedEvent()
                 CommonUtils.showGenericAlert(message: NewsListingConstants.newsFetchingErrorMessage, viewController: self)

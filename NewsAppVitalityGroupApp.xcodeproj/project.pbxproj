@@ -40,6 +40,7 @@
 		1FE5253B294C4ED10049A3D0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1FE5253A294C4ED10049A3D0 /* FirebaseAnalytics */; };
 		1FE5253D294C4ED10049A3D0 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1FE5253C294C4ED10049A3D0 /* FirebaseAnalyticsSwift */; };
 		1FE5253F294C51200049A3D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1FE5253E294C511F0049A3D0 /* GoogleService-Info.plist */; };
+		1FE52543294C56D20049A3D0 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 1FE52542294C56D20049A3D0 /* MBProgressHUD */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 			files = (
 				1FE5253D294C4ED10049A3D0 /* FirebaseAnalyticsSwift in Frameworks */,
 				1FE5253B294C4ED10049A3D0 /* FirebaseAnalytics in Frameworks */,
+				1FE52543294C56D20049A3D0 /* MBProgressHUD in Frameworks */,
 				1FE5251C294B76F20049A3D0 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +348,7 @@
 				1FE5251B294B76F20049A3D0 /* SDWebImage */,
 				1FE5253A294C4ED10049A3D0 /* FirebaseAnalytics */,
 				1FE5253C294C4ED10049A3D0 /* FirebaseAnalyticsSwift */,
+				1FE52542294C56D20049A3D0 /* MBProgressHUD */,
 			);
 			productName = NewsAppVitalityGroupApp;
 			productReference = 1F7E720B2948AB2600BB980D /* NewsAppVitalityGroupApp.app */;
@@ -425,6 +428,7 @@
 			packageReferences = (
 				1FE5251A294B76F20049A3D0 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				1FE52539294C4ED10049A3D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				1FE52541294C56D10049A3D0 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
 			);
 			productRefGroup = 1F7E720C2948AB2600BB980D /* Products */;
 			projectDirPath = "";
@@ -869,6 +873,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		1FE52541294C56D10049A3D0 /* XCRemoteSwiftPackageReference "MBProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jdg/MBProgressHUD.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -891,6 +903,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1FE52539294C4ED10049A3D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalyticsSwift;
+		};
+		1FE52542294C56D20049A3D0 /* MBProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1FE52541294C56D10049A3D0 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
+			productName = MBProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

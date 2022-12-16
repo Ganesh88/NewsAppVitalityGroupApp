@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class CommonUtils {
     class func showGenericAlert(message: String, viewController: UIViewController) {
@@ -26,5 +27,18 @@ class CommonUtils {
         else {
             return ""
         }
+    }
+}
+
+
+extension UIViewController {
+    func showHud() {
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.label.text = "Loading"
+        hud.isUserInteractionEnabled = false
+    }
+    
+    func hideHUD() {
+        MBProgressHUD.hide(for: self.view, animated: true)
     }
 }
