@@ -30,6 +30,8 @@
 		1FE52523294B88EA0049A3D0 /* NewsListingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE52522294B88EA0049A3D0 /* NewsListingConstants.swift */; };
 		1FE52525294B94CD0049A3D0 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE52524294B94CD0049A3D0 /* CountryModel.swift */; };
 		1FE52528294B99B70049A3D0 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE52527294B99B70049A3D0 /* UserDefaultsExtension.swift */; };
+		1FE5252A294C18550049A3D0 /* NewsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE52529294C18550049A3D0 /* NewsDetailsViewController.swift */; };
+		1FE52530294C22490049A3D0 /* NewsDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE5252F294C22490049A3D0 /* NewsDetailsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		1FE52522294B88EA0049A3D0 /* NewsListingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListingConstants.swift; sourceTree = "<group>"; };
 		1FE52524294B94CD0049A3D0 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		1FE52527294B99B70049A3D0 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
+		1FE52529294C18550049A3D0 /* NewsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewController.swift; sourceTree = "<group>"; };
+		1FE5252F294C22490049A3D0 /* NewsDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +186,10 @@
 		1F7E72402948ABBD00BB980D /* NewsDetails */ = {
 			isa = PBXGroup;
 			children = (
+				1FE5252E294C22130049A3D0 /* API */,
+				1FE5252D294C21F80049A3D0 /* ViewModel */,
+				1FE5252C294C21DF0049A3D0 /* View */,
+				1FE5252B294C21D00049A3D0 /* ViewController */,
 			);
 			path = NewsDetails;
 			sourceTree = "<group>";
@@ -262,6 +270,36 @@
 				1FE52527294B99B70049A3D0 /* UserDefaultsExtension.swift */,
 			);
 			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		1FE5252B294C21D00049A3D0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1FE52529294C18550049A3D0 /* NewsDetailsViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1FE5252C294C21DF0049A3D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1FE5252F294C22490049A3D0 /* NewsDetailsTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1FE5252D294C21F80049A3D0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1FE5252E294C22130049A3D0 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,10 +445,12 @@
 				1F7E720F2948AB2600BB980D /* AppDelegate.swift in Sources */,
 				1F7E725A2948E45700BB980D /* NewsListingTableViewCell.swift in Sources */,
 				1F7E725C2948E6A300BB980D /* NewsListingViewModel.swift in Sources */,
+				1FE5252A294C18550049A3D0 /* NewsDetailsViewController.swift in Sources */,
 				1F7E72432948AC5000BB980D /* IServiceFactory.swift in Sources */,
 				1F7E72532948D60900BB980D /* NewsListingWebService.swift in Sources */,
 				1F7E72502948B76D00BB980D /* Constants.swift in Sources */,
 				1F7E724D2948B26700BB980D /* NewsListingViewController.swift in Sources */,
+				1FE52530294C22490049A3D0 /* NewsDetailsTableViewCell.swift in Sources */,
 				1FE52528294B99B70049A3D0 /* UserDefaultsExtension.swift in Sources */,
 				1F7E72562948D8C600BB980D /* ArticlesResponseModel.swift in Sources */,
 				1FE52523294B88EA0049A3D0 /* NewsListingConstants.swift in Sources */,

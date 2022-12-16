@@ -30,6 +30,7 @@ class NewsListingViewController: UIViewController {
         super.viewDidLoad()
         
         setUpUI()
+        setUpTap()
         newsListingViewModel = NewsListingViewModel(newsListingService: AppDelegate.getServiceFactory().getNewsListingService())
         getNewsListing()
     }
@@ -51,6 +52,18 @@ class NewsListingViewController: UIViewController {
         setUpToolBar()
         setUpPullToRefreshControl()
 
+    }
+    
+    private func setUpTap() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
+                    tap.cancelsTouchesInView = false
+                    view.addGestureRecognizer(tap)
+    }
+    
+    @objc func handleTapGesture(sender: AnyObject) {
+        if !countrySelectPickerView.isHidden {
+            countrySelectPickerView.isHidden = true
+        }
     }
     
     @objc func rightButtonAction(sender: UIBarButtonItem) {
@@ -115,6 +128,15 @@ extension NewsListingViewController: UITableViewDataSource, UITableViewDelegate 
         guard let newsListingTableViewCell = tableView.dequeueReusableCell(withIdentifier: newsListingTableViewCellIdentifier, for: indexPath as IndexPath) as? NewsListingTableViewCell else { return UITableViewCell() }
         newsListingTableViewCell.configure(articleModel: articlesResponseModel?.articles?[indexPath.row])
         return newsListingTableViewCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let newsDetailsVC = storyboard.instantiateViewController(withIdentifier: "NewsDetailsViewController" ) as? NewsDetailsViewController {
+            newsDetailsVC.newsArticleModel =  articlesResponseModel?.articles?[indexPath.row]
+            navigationController?.pushViewController(newsDetailsVC, animated: true)
+        }
     }
 }
 
